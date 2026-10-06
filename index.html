@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión: Ruta del Respeto | Ministerio del Interior</title>
+    <meta name="description" content="Actividad virtual, individual e interactiva de sensibilización sobre la prevención de las violencias basadas en género y la discriminación en el Ministerio del Interior de Colombia.">
+    <!-- Google Fonts -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Decorator Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <!-- Main Container -->
+    <div id="app" class="app-container">
+        <!-- Top Institutional Header -->
+        <header class="inst-header">
+            <div class="header-left">
+                <div class="gov-badge">
+                    <span class="flag-stripe yellow"></span>
+                    <span class="flag-stripe blue"></span>
+                    <span class="flag-stripe red"></span>
+                    <span class="gov-text">MINISTERIO DEL INTERIOR</span>
+                </div>
+                <div class="sub-entity">Subdirección de Gestión Humana - SST</div>
+            </div>
+            <div class="header-right">
+                <button id="soundToggleBtn" class="sound-btn" title="Activar/Desactivar Sonido" aria-label="Control de Sonido">
+                    <span class="sound-icon">🔊</span>
+                    <span class="sound-text">Sonido ON</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Progress Navigation Bar (Shown during challenges) -->
+        <nav id="progressNav" class="progress-nav hidden" aria-label="Progreso de la Misión">
+            <div class="progress-info">
+                <span class="progress-label">PROGRESO DE LA MISIÓN:</span>
+                <span id="stepCounter" class="step-counter">Desafío 1 / 4</span>
+            </div>
+            <div class="progress-bar-track">
+                <div id="progressBarFill" class="progress-bar-fill" style="width: 25%;"></div>
+            </div>
+            <div class="step-nodes">
+                <div id="node-1" class="step-node active" title="Desafío 1: El Semáforo">
+                    <span class="node-icon">🚦</span>
+                    <span class="node-text">Semáforo</span>
+                </div>
+                <div id="node-2" class="step-node" title="Desafío 2: Detecta la Señal">
+                    <span class="node-icon">🧠</span>
+                    <span class="node-text">Señal</span>
+                </div>
+                <div id="node-3" class="step-node" title="Desafío 3: Encuentra la Ruta">
+                    <span class="node-icon">🧩</span>
+                    <span class="node-text">Ruta</span>
+                </div>
+                <div id="node-4" class="step-node" title="Desafío 4: Ponte en sus Zapatos">
+                    <span class="node-icon">❤️</span>
+                    <span class="node-text">Empatía</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Screen Container -->
+        <main id="mainContent" class="main-content">
+
+            <!-- ================= PANTALLA DE INICIO ================= -->
+            <section id="screenIntro" class="screen screen-active">
+                <div class="hero-card glass-panel">
+                    <div class="mission-tag bounce-in">⚡ ACTIVIDAD INTERACTIVA Y GAMIFICADA</div>
+                    <h1 class="main-title">
+                        <span class="icon-star">🌟</span> MISIÓN: RUTA DEL RESPETO
+                    </h1>
+                    <p class="main-subtitle">
+                        Actividad virtual de sensibilización sobre la prevención de las violencias basadas en género y la discriminación
+                    </p>
+
+                    <div class="metadata-chips">
+                        <div class="chip">
+                            <span class="chip-icon">💻</span>
+                            <span><strong>Modalidad:</strong> Virtual e individual</span>
+                        </div>
+                        <div class="chip">
+                            <span class="chip-icon">⏱️</span>
+                            <span><strong>Duración:</strong> 10 a 15 minutos</span>
+                        </div>
+                    </div>
+
+                    <div class="mission-briefing">
+                        <p class="briefing-intro">
+                            Durante esta actividad encontrarás <strong>4 desafíos</strong> muy sencillos.
+                        </p>
+
+                        <div class="action-grid">
+                            <div class="action-card">
+                                <div class="action-icon">👀</div>
+                                <div class="action-name">OBSERVAR</div>
+                            </div>
+                            <div class="action-card">
+                                <div class="action-icon">🧠</div>
+                                <div class="action-name">IDENTIFICAR</div>
+                            </div>
+                            <div class="action-card">
+                                <div class="action-icon">🚦</div>
+                                <div class="action-name">DECIDIR</div>
+                            </div>
+                            <div class="action-card">
+                                <div class="action-icon">🧭</div>
+                                <div class="action-name">ACTUAR</div>
+                            </div>
+                        </div>
+
+                        <div class="mission-statement">
+                            <span class="target-icon">🎯</span>
+                            <span><strong>Tu misión:</strong> reconocer lo que está bien, identificar lo que genera alerta y saber qué hacer cuando una situación requiere atención.</span>
+                        </div>
+                    </div>
+
+                    <div class="cta-container">
+                        <button id="btnStartMission" class="btn btn-primary btn-large btn-glow">
+                            <span>ACEPTAR LA MISIÓN 🚀</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= DESAFÍO 1: EL SEMÁFORO ================= -->
+            <section id="screenChallenge1" class="screen hidden">
+                <div class="challenge-card glass-panel">
+                    <div class="challenge-header">
+                        <span class="badge badge-amber">DESAFÍO 1 DE 4</span>
+                        <h2 class="challenge-title">🚦 ¡ENCIENDE EL SEMÁFORO!</h2>
+                        <p class="challenge-desc">
+                            Clasifica cada situación laboral seleccionando el nivel de alerta correspondiente en el semáforo.
+                        </p>
+                    </div>
+
+                    <div class="traffic-legend">
+                        <div class="legend-item legend-green">
+                            <span class="dot">🟢</span>
+                            <span><strong>VERDE:</strong> Conducta respetuosa.</span>
+                        </div>
+                        <div class="legend-item legend-yellow">
+                            <span class="dot">🟡</span>
+                            <span><strong>AMARILLO:</strong> Señal de alerta. Requiere atención.</span>
+                        </div>
+                        <div class="legend-item legend-red">
+                            <span class="dot">🔴</span>
+                            <span><strong>ROJO:</strong> Conducta que puede constituir violencia, acoso o discriminación y no debe normalizarse.</span>
+                        </div>
+                    </div>
+
+                    <!-- Counter inside challenge 1 -->
+                    <div class="sub-progress">
+                        <span>Situación <span id="c1CurrentIndex">1</span> de <span id="c1TotalCount">5</span></span>
+                        <div class="dots-indicator" id="c1Dots"></div>
+                    </div>
+
+                    <!-- Situation Card -->
+                    <div id="c1Card" class="situation-box">
+                        <div class="situation-quote-icon">💬</div>
+                        <div id="c1SituationText" class="situation-text">
+                            "Cargando situación..."
+                        </div>
+                    </div>
+
+                    <!-- Interactive Traffic Light Buttons -->
+                    <div class="traffic-controls">
+                        <button class="traffic-btn btn-green" data-color="GREEN">
+                            <span class="light-circle">🟢</span>
+                            <div class="btn-text">
+                                <strong>VERDE</strong>
+                                <small>Conducta respetuosa</small>
+                            </div>
+                        </button>
+                        <button class="traffic-btn btn-yellow" data-color="YELLOW">
+                            <span class="light-circle">🟡</span>
+                            <div class="btn-text">
+                                <strong>AMARILLO</strong>
+                                <small>Señal de alerta</small>
+                            </div>
+                        </button>
+                        <button class="traffic-btn btn-red" data-color="RED">
+                            <span class="light-circle">🔴</span>
+                            <div class="btn-text">
+                                <strong>ROJO</strong>
+                                <small>Violencia / Acoso / Discriminación</small>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Feedback Box -->
+                    <div id="c1Feedback" class="feedback-box hidden">
+                        <div id="c1FeedbackIcon" class="fb-icon">💡</div>
+                        <div class="fb-content">
+                            <h4 id="c1FeedbackTitle" class="fb-title">¡Respuesta Correcta!</h4>
+                            <p id="c1FeedbackBody" class="fb-body"></p>
+                        </div>
+                        <button id="c1NextSubBtn" class="btn btn-secondary">Siguiente Situación ➔</button>
+                    </div>
+
+                    <!-- Final Challenge 1 Key Message -->
+                    <div id="c1KeyMessage" class="key-message-box hidden">
+                        <div class="key-icon">💡</div>
+                        <div class="key-content">
+                            <h3>MENSAJE CLAVE</h3>
+                            <p>No todo debe llegar al rojo para que prestemos atención. Identificar las señales a tiempo también es prevenir.</p>
+                        </div>
+                        <button id="c1FinishBtn" class="btn btn-primary btn-glow">CONTINUAR ➜</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= DESAFÍO 2: DETECTA LA SEÑAL ================= -->
+            <section id="screenChallenge2" class="screen hidden">
+                <div class="challenge-card glass-panel">
+                    <div class="challenge-header">
+                        <span class="badge badge-purple">DESAFÍO 2 DE 4</span>
+                        <h2 class="challenge-title">🧠 ¡DETECTA LA SEÑAL!</h2>
+                        <p class="challenge-desc">Lee con atención la historia breve y reflexiona sobre la mejor forma de actuar.</p>
+                    </div>
+
+                    <div class="story-card">
+                        <div class="story-badge">📖 HISTORIA DE CASO</div>
+                        <p class="story-text">
+                            "Una compañera te cuenta que ha recibido mensajes de contenido sexual que no solicitó y que la situación le genera incomodidad."
+                        </p>
+                    </div>
+
+                    <div class="question-container">
+                        <h3 class="question-title">❓ ¿QUÉ HARÍAS?</h3>
+
+                        <div class="options-list" id="c2OptionsList">
+                            <button class="option-btn" data-option="A">
+                                <span class="option-letter">A</span>
+                                <span class="option-text">Decirle que seguramente es una broma.</span>
+                            </button>
+                            <button class="option-btn" data-option="B">
+                                <span class="option-letter">B</span>
+                                <span class="option-text">Preguntarle qué hizo para que le enviaran esos mensajes.</span>
+                            </button>
+                            <button class="option-btn" data-option="C">
+                                <span class="option-letter">C</span>
+                                <span class="option-text">Escucharla con respeto, evitar juzgarla y orientarla sobre las rutas de atención.</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Feedback & Formula Display -->
+                    <div id="c2Feedback" class="feedback-box hidden">
+                        <div class="fb-icon">✅</div>
+                        <div class="fb-content">
+                            <h4 class="fb-title">¡Excelente decisión!</h4>
+                            <p class="fb-body">
+                                Cuando alguien cuenta una situación de este tipo, es importante escuchar, respetar, no juzgar, evitar la revictimización y orientar sobre las rutas disponibles.
+                            </p>
+                        </div>
+
+                        <!-- Visual Formula -->
+                        <div class="action-formula">
+                            <div class="formula-chip">ESCUCHA</div>
+                            <span class="plus">+</span>
+                            <div class="formula-chip">RESPETA</div>
+                            <span class="plus">+</span>
+                            <div class="formula-chip">NO JUZGUES</div>
+                            <span class="plus">+</span>
+                            <div class="formula-chip">EVITA LA REVICTIMIZACIÓN</div>
+                            <span class="plus">+</span>
+                            <div class="formula-chip">ORIENTA</div>
+                        </div>
+
+                        <div class="cta-right">
+                            <button id="c2FinishBtn" class="btn btn-primary btn-glow">CONTINUAR ➜</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= DESAFÍO 3: ENCUENTRA LA RUTA ================= -->
+            <section id="screenChallenge3" class="screen hidden">
+                <div class="challenge-card glass-panel">
+                    <div class="challenge-header">
+                        <span class="badge badge-blue">DESAFÍO 3 DE 4</span>
+                        <h2 class="challenge-title">🧩 ¡ENCUENTRA LA RUTA!</h2>
+                        <p class="challenge-desc">
+                            Relaciona cada tipo de situación con la ruta de atención o instancia correspondiente. (Puedes hacer clic para seleccionar y emparejar, o arrastrar las piezas).
+                        </p>
+                    </div>
+
+                    <div class="matching-container">
+                        <!-- Left Column: Situations -->
+                        <div class="matching-column" id="c3SituationsCol">
+                            <h4 class="col-title">SITUACIÓN</h4>
+                            
+                            <div class="drag-item" data-id="1" draggable="true" tabindex="0">
+                                <span class="item-icon">🟣</span>
+                                <span class="item-label">Violencia basada en género o discriminación</span>
+                            </div>
+                            <div class="drag-item" data-id="2" draggable="true" tabindex="0">
+                                <span class="item-icon">🟠</span>
+                                <span class="item-label">Posible acoso laboral</span>
+                            </div>
+                            <div class="drag-item" data-id="3" draggable="true" tabindex="0">
+                                <span class="item-icon">🟢</span>
+                                <span class="item-label">Necesidad de orientación psicosocial o jurídica</span>
+                            </div>
+                            <div class="drag-item" data-id="4" draggable="true" tabindex="0">
+                                <span class="item-icon">🔵</span>
+                                <span class="item-label">Posible conducta que puede constituir delito</span>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Drop targets / Routes -->
+                        <div class="matching-column" id="c3RoutesCol">
+                            <h4 class="col-title">RUTA DE ATENCIÓN</h4>
+
+                            <div class="drop-zone" data-target="1">
+                                <div class="zone-placeholder">Selecciona o suelta aquí la situación correspondiente</div>
+                                <div class="zone-target-text">➡️ <strong>Subdirección de Gestión Humana – Grupo de Seguridad y Salud en el Trabajo / ruta institucional.</strong></div>
+                            </div>
+                            <div class="drop-zone" data-target="2">
+                                <div class="zone-placeholder">Selecciona o suelta aquí la situación correspondiente</div>
+                                <div class="zone-target-text">➡️ <strong>Comité de Convivencia Laboral, dentro de sus competencias.</strong></div>
+                            </div>
+                            <div class="drop-zone" data-target="3">
+                                <div class="zone-placeholder">Selecciona o suelta aquí la situación correspondiente</div>
+                                <div class="zone-target-text">➡️ <strong>Red de Acompañamiento.</strong></div>
+                            </div>
+                            <div class="drop-zone" data-target="4">
+                                <div class="zone-placeholder">Selecciona o suelta aquí la situación correspondiente</div>
+                                <div class="zone-target-text">➡️ <strong>Autoridad competente, según corresponda.</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Highlighted Institutional Channel Block -->
+                    <div id="c3ChannelBlock" class="institutional-channel-box hidden">
+                        <div class="channel-badge">📌 CANAL INSTITUCIONAL</div>
+                        <div class="channel-content">
+                            <div class="email-row">
+                                <span class="mail-icon">✉️</span>
+                                <span class="email-label">Correo oficial de atención:</span>
+                                <a href="mailto:yodenunciovbgydiscriminacion@mininterior.gov.co" class="email-address">yodenunciovbgydiscriminacion@mininterior.gov.co</a>
+                            </div>
+                            <p class="channel-msg">
+                                No necesitas resolver la situación por tu cuenta. Lo importante es reconocerla y saber orientar hacia la ruta correspondiente.
+                            </p>
+                        </div>
+                        <div class="cta-right">
+                            <button id="c3FinishBtn" class="btn btn-primary btn-glow">CONTINUAR ➜</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= DESAFÍO 4: PONTE EN SUS ZAPATOS ================= -->
+            <section id="screenChallenge4" class="screen hidden">
+                <div class="challenge-card glass-panel">
+                    <div class="challenge-header">
+                        <span class="badge badge-rose">DESAFÍO 4 DE 4</span>
+                        <h2 class="challenge-title">❤️ ¡PONTE EN SUS ZAPATOS!</h2>
+                        <p class="challenge-desc">Demuestra empatía y responde de manera constructiva ante la inquietud de un/a colaborador/a.</p>
+                    </div>
+
+                    <div class="empathy-card">
+                        <div class="empathy-avatar">👤</div>
+                        <div class="speech-bubble">
+                            <p class="quote-text">
+                                "No sé si debería contar lo que me está pasando porque tengo miedo de que nadie me crea o de tener problemas en mi trabajo".
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <h3 class="question-title">❓ ¿QUÉ RESPONDERÍAS?</h3>
+
+                        <div class="options-list" id="c4OptionsList">
+                            <button class="option-btn" data-option="A">
+                                <span class="option-letter">A</span>
+                                <span class="option-text">“Mejor no te metas en problemas”.</span>
+                            </button>
+                            <button class="option-btn" data-option="B">
+                                <span class="option-letter">B</span>
+                                <span class="option-text">“Seguro no es para tanto”.</span>
+                            </button>
+                            <button class="option-btn" data-option="C">
+                                <span class="option-letter">C</span>
+                                <span class="option-text">“Gracias por contármelo. Te escucho, no estás sola/o y podemos orientarte sobre las rutas disponibles”.</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Feedback & Key Message -->
+                    <div id="c4Feedback" class="feedback-box hidden">
+                        <div class="fb-icon">🌟</div>
+                        <div class="fb-content">
+                            <h4 class="fb-title">¡Respuesta Empática e Inclusiva!</h4>
+                            <p class="fb-body">
+                                <strong>MENSAJE CLAVE:</strong> Una respuesta respetuosa puede ser el primer paso para que una persona se sienta segura y pueda acceder a orientación y protección.
+                            </p>
+                        </div>
+                        <div class="cta-right">
+                            <button id="c4FinishBtn" class="btn btn-primary btn-glow">VER RESULTADOS DE LA MISIÓN 🚀</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= PANTALLA FINAL: MISIÓN CUMPLIDA ================= -->
+            <section id="screenFinal" class="screen hidden">
+                <div class="final-card glass-panel text-center">
+                    <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+                    <div class="badge-header bounce-in">
+                        <div class="trophy-icon">🏆</div>
+                        <div class="mission-completed-tag">MISIÓN CUMPLIDA</div>
+                    </div>
+
+                    <h1 class="final-title">🏆 ¡MISIÓN CUMPLIDA!</h1>
+
+                    <!-- Code of Respect Visual Card -->
+                    <div class="code-card">
+                        <div class="card-lock-icon">🔐</div>
+                        <h2 class="code-title">TU CÓDIGO DEL RESPETO</h2>
+
+                        <div class="words-pill-container">
+                            <span class="word-pill">RESPETAR</span>
+                            <span class="dot-separator">•</span>
+                            <span class="word-pill">ESCUCHAR</span>
+                            <span class="dot-separator">•</span>
+                            <span class="word-pill">IDENTIFICAR</span>
+                            <span class="dot-separator">•</span>
+                            <span class="word-pill">ORIENTAR</span>
+                            <span class="dot-separator">•</span>
+                            <span class="word-pill">ACTUAR</span>
+                        </div>
+
+                        <p class="code-subtext">
+                            Porque construir espacios laborales seguros no depende solamente de conocer un Protocolo.
+                        </p>
+
+                        <div class="highlight-green-box">
+                            <h3>💚 DEPENDE DE LO QUE HACEMOS CADA DÍA.</h3>
+                        </div>
+                    </div>
+
+                    <!-- Manifest & Commitment Text -->
+                    <div class="final-manifest">
+                        <p>
+                            <strong>Prevenir también es actuar.</strong>
+                        </p>
+                        <p>
+                            Reconocer una conducta, respetar las diferencias, escuchar sin juzgar, evitar la revictimización y conocer las rutas de atención son acciones que contribuyen a construir un ambiente laboral seguro, respetuoso e inclusivo.
+                        </p>
+                        <p class="highlight-callout">
+                            Un Ministerio del Interior libre de violencia y discriminación lo construimos entre todos.
+                        </p>
+                    </div>
+
+                    <div class="thanks-block">
+                        <div class="thanks-title">🌟 ¡GRACIAS POR ACEPTAR LA MISIÓN!</div>
+                        <div class="sign-entity">
+                            <strong>Subdirección de Gestión Humana – Grupo de Seguridad y Salud en el Trabajo</strong><br>
+                            <span>Ministerio del Interior</span>
+                        </div>
+                    </div>
+
+                    <!-- Personalization & Certificate Options -->
+                    <div class="cert-interactive-box">
+                        <h3>🎓 Constancia de Finalización</h3>
+                        <p>Ingresa tu nombre para generar tu insignia personalizada de la Ruta del Respeto:</p>
+                        <div class="name-input-group">
+                            <input type="text" id="participantName" placeholder="Escribe tu nombre y apellido..." aria-label="Nombre del participante">
+                            <button id="btnGenerateCert" class="btn btn-secondary">Generar Vista de Constancia</button>
+                        </div>
+                        <div id="certPreview" class="cert-preview hidden">
+                            <div class="cert-frame">
+                                <div class="cert-watermark">MININTERIOR</div>
+                                <h4>CONSTANCIA DE SENSIBILIZACIÓN</h4>
+                                <p>Se otorga la presente insignia a:</p>
+                                <h2 id="certNameDisplay">NOMBRE Y APELLIDO</h2>
+                                <p>Por haber completado exitosamente la actividad interactiva:</p>
+                                <h3>🌟 MISIÓN: RUTA DEL RESPETO</h3>
+                                <div class="cert-footer">
+                                    <span>Código: RESPETAR - ESCUCHAR - IDENTIFICAR - ORIENTAR - ACTUAR</span><br>
+                                    <small>Ministerio del Interior | Subdirección de Gestión Humana - SST</small>
+                                </div>
+                            </div>
+                            <button id="btnPrintCert" class="btn btn-primary">🖨️ Imprimir / Guardar Constancia</button>
+                        </div>
+                    </div>
+
+                    <div class="restart-container">
+                        <button id="btnRestartMission" class="btn btn-outline">
+                            <span>🔄 Repetir la Misión</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="inst-footer">
+            <p>Ministerio del Interior de Colombia • República de Colombia</p>
+            <p><small>Comprometidos con la prevención de violencias basadas en género, acoso y discriminación laboral.</small></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
